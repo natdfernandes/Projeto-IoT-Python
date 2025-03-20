@@ -3,3 +3,4 @@
 ### Projeto: Biblioteca Digital 📚
 * Natalia Dias Fernandes
 * Erick Valente Sprogis
+* Samuel Fernandes Pereira
