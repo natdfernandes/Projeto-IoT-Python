@@ -4,3 +4,7 @@
 * Natalia Dias Fernandes
 * Erick Valente Sprogis
 * Samuel Fernandes Pereira
+
+### Visão do projeto
+
+Um [board Kanban](https://github.com/users/natdfernandes/projects/1/views/1) está disponivel para visualização e planejamento do projeto.
