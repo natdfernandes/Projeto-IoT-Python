@@ -6,7 +6,7 @@ from pytesseract import Output
 pytesseract.pytesseract.tesseract_cmd = (
     r"C:\Users\natal\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 )
-config = r"--psm 11"
+config = r"--psm 6"
 
 for i in range(7):
     posicao = i + 1
@@ -14,7 +14,7 @@ for i in range(7):
 
     dados_imagem = pytesseract.image_to_data(
         Image.open("./imagens/IMG-20250330-WA000{0}.jpg".format(posicao)),
-        lang="por",
+        lang="por+eng",
         config=config,
         output_type=Output.DICT,
     )
