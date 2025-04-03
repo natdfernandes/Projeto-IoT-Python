@@ -1,5 +1,5 @@
-from PIL import Image
 import pytesseract
+from PIL import Image
 from os import listdir
 from pytesseract import Output
 
@@ -9,10 +9,24 @@ pytesseract.pytesseract.tesseract_cmd = (
 )
 
 
+def ajustar_contraste(imagem: Image, nivel: int):
+    fator = (259 * (nivel + 255)) / (255 * (259 - nivel))
+
+    def contrast(c):
+        return 128 + fator * (c - 128)
+
+    return imagem.point(contrast)
+
+
 def extrair_dados_da_imagem(imagem: str):
-    config = r"--psm 6"
+    config = r"--oem 3 --psm 6"
+    img = Image.open(imagem)
+    img = img.convert("L")
+    img = ajustar_contraste(img, 100)
+    img.show()
+
     return pytesseract.image_to_data(
-        Image.open(imagem),
+        img,
         lang="por+eng",
         config=config,
         output_type=Output.DICT,
@@ -33,4 +47,4 @@ pasta_imagens = "./imagens"
 for imagem in listdir(pasta_imagens):
     dados_imagem = extrair_dados_da_imagem("{0}/{1}".format(pasta_imagens, imagem))
 
-    print(extrair_texto_legivel(dados_imagem["text"]))
+    print(imagem, extrair_texto_legivel(dados_imagem["text"]))
