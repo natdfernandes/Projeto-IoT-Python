@@ -1,5 +1,6 @@
 from PIL import Image
 import pytesseract
+from os import listdir
 from pytesseract import Output
 
 # Precisa apontar para onde a ferramenta do tesseract foi instalada em sua máquina
@@ -18,17 +19,18 @@ def extrair_dados_da_imagem(imagem: str):
     )
 
 
-for i in range(7):
-    posicao = i + 1
-    print("Lendo imagem de número {0}".format(posicao))
-
-    dados_imagem = extrair_dados_da_imagem(
-        "./imagens/IMG-20250330-WA000{0}.jpg".format(posicao)
-    )
-
+def extrair_texto_legivel(textos: list[str]):
     texto_do_livro = ""
-    for texto in dados_imagem["text"]:
+    for texto in textos:
         if texto != "":
             texto_do_livro = texto_do_livro + " " + texto
 
-    print(texto_do_livro.strip())
+    return texto_do_livro.strip()
+
+
+pasta_imagens = "./imagens"
+
+for imagem in listdir(pasta_imagens):
+    dados_imagem = extrair_dados_da_imagem("{0}/{1}".format(pasta_imagens, imagem))
+
+    print(extrair_texto_legivel(dados_imagem["text"]))
