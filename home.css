@@ -31,7 +31,7 @@ body {
 
 /* ===== HEADER ===== */
 header {
-	background-color: #9b9999;
+	background-color: #A0C878
 }
 
 .navbar {
@@ -50,7 +50,7 @@ header {
 
 /* Barra de pesquisa mobile */
 .mobile-search-container {
-	background-color: #9b9999;
+	background-color: #A0C878;
 	padding: 0.8rem 1rem;
 	display: none;
 	transition: all 0.3s ease;
@@ -67,11 +67,11 @@ header {
 }
 
 .btn-search-mobile {
-	background-color: #d9d9d9;
+	background-color: #A0C878;
 	color: #000;
+	border: solid 3px #fff;
 	white-space: nowrap;
 	padding: 0.5rem 1rem;
-	border: none;
 }
 
 .search-icon {
@@ -87,9 +87,14 @@ header {
 
 /* Formulário de busca desktop */
 .btn-search-desktop {
-	background-color: #d9d9d9;
+	background-color: #A0C878;
 	color: #000;
-	border: none;
+	border: solid 3px #fff;
+}
+
+.btn-search-desktop:hover {
+	background-color: #fff;
+	color: #000;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -123,9 +128,9 @@ main {
 }
 
 #read {
-	background-color: #9b9999;
+	background-color: #fff;
 	color: rgb(0, 0, 0);
-	border: none;
+	border: solid 3px #A0C878;
 	padding: 0.8rem 1.5rem;
 	border-radius: 5px;
 	font-size: 1rem;
@@ -136,12 +141,12 @@ main {
 }
 
 #read:hover {
-	background-color: #d9d9d9;
+	background-color: #A0C878
 }
 
 /* ===== FOOTER ===== */
 footer {
-	background-color: #9b9999;
+	background-color: #A0C878;
 	padding: 1rem;
 	text-align: center;
 }
