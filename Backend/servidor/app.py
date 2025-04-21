@@ -1,15 +1,9 @@
 from flask import Flask, request, jsonify
-from db import inicializar_banco
+from db import inicializar_banco, connect_db, cadastrar_livro
 from ferramenta import extrair_codigo_de_barras, extrair_info_de_livro
 import sqlite3
 
 app = Flask(__name__)
-
-
-# conectar ao DB
-def connect_db():
-    print("[INFO] Conectando ao banco de dados")
-    return sqlite3.connect("library.db")
 
 
 # atualiza o status do livro
@@ -93,7 +87,10 @@ def cadastrar():
     if not info_livro:
         return {"error": "Não foi possivel buscar informações do livro."}, 400
 
-    return {"message": "Imagem recebida com sucesso! {0}".format(info_livro)}, 200
+    if not cadastrar_livro(codigo_de_barras, info_livro):
+        return {"error": "Não foi possivel salvar informações do livro."}, 400
+
+    return {"message": "Livro salvo com sucesso!"}, 200
 
 
 # cria um servidor para rodar
