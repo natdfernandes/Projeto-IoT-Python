@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from db import inicializar_banco
+from ferramenta import extrair_codigo_de_barras
 import sqlite3
 
 app = Flask(__name__)
@@ -72,6 +73,23 @@ def update_status():
             "mensagem": f"{titulo} agora está {'disponível' if novo_status == 1 else 'indisponível'}"
         }
     )
+
+
+@app.route("/livro/cadastrar", methods=["POST"])
+def cadastrar():
+    if "isbn" not in request.files:
+        return {"error": 'Nenhuma imagem com a chave "isbn" foi enviada.'}, 400
+
+    image_file = request.files["isbn"]
+
+    if image_file.filename == "":
+        return {"error": "Arquivo vazio."}, 400
+
+    codigo_de_barras = extrair_codigo_de_barras(image_file)
+    if not codigo_de_barras:
+        return {"error": "Não foi possivel ler o código de barras."}, 400
+
+    return {"message": "Imagem recebida com sucesso! {0}".format(codigo_de_barras)}, 200
 
 
 # cria um servidor para rodar
