@@ -70,16 +70,15 @@ enviarSalvo.addEventListener('change', (event) => {
 enviar.addEventListener('click', () => {
     canvas.toBlob(blob => {
         const formData = new FormData();
-        formData.append('imagem', blob, 'captura.jpg');
+        formData.append('isbn', blob, 'captura.jpg');
 
-        fetch('https://sua-api.com/upload', {
+        fetch('http://localhost:8080/livro/cadastrar', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Sucesso:', data);
-                alert('Imagem enviada com sucesso!');
+                alert(data.error ?? data.message);
             })
             .catch(error => {
                 console.error('Erro ao enviar a imagem:', error);

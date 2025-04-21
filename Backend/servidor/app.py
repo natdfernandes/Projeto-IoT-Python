@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from db import inicializar_banco, connect_db, cadastrar_livro
 from ferramenta import extrair_codigo_de_barras, extrair_info_de_livro
-import sqlite3
+from flask_cors import CORS
 
 app = Flask(__name__)
+# Libera CORS apenas para origens específicas
+CORS(app, origins=["http://localhost:5500", "https://natdfernandes.github.io"])
 
 
 # atualiza o status do livro
