@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from db import inicializar_banco
-from ferramenta import extrair_codigo_de_barras
+from ferramenta import extrair_codigo_de_barras, extrair_info_de_livro
 import sqlite3
 
 app = Flask(__name__)
@@ -89,7 +89,11 @@ def cadastrar():
     if not codigo_de_barras:
         return {"error": "Não foi possivel ler o código de barras."}, 400
 
-    return {"message": "Imagem recebida com sucesso! {0}".format(codigo_de_barras)}, 200
+    info_livro = extrair_info_de_livro(codigo_de_barras)
+    if not info_livro:
+        return {"error": "Não foi possivel buscar informações do livro."}, 400
+
+    return {"message": "Imagem recebida com sucesso! {0}".format(info_livro)}, 200
 
 
 # cria um servidor para rodar
