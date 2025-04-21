@@ -1,111 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-			rel="stylesheet" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-		<link
-			rel="icon"
-			href="Imgs/Biblioteca-digital-branco.png"
-			type="image/png" />
-		<link rel="stylesheet" href="home.css" />
-		<title>Biblioteca Digital</title>
-	</head>
-	<body>
-		<header>
-			<nav class="navbar navbar-expand-lg">
-				<div class="container-fluid">
-					<div class="d-flex align-items-center">
-						<img
-							src="Imgs/Biblioteca-digital-branco.png"
-							alt="Logo Biblioteca Digital"
-							class="logo-desktop me-2" />
-						<a class="navbar-brand" href="index.html">Biblioteca Digital</a>
-					</div>
 
-					<!-- Ícone de busca para mobile -->
-					<button id="searchToggle" class="btn btn-link d-lg-none search-icon">
-						<i class="fas fa-search"></i>
-					</button>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+	<link rel="icon" href="Imgs/Biblioteca-digital-branco.png" type="image/png" />
+	<link rel="stylesheet" href="home.css" />
+	<title>Biblioteca Digital</title>
+</head>
 
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a class="nav-link active" href="index.html">HOME</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="aboutUs.html">SOBRE NÓS</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="BOOKS/books.html">LIVROS</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="contact.html">CONTATO</a>
-							</li>
-						</ul>
-						<!-- Formulário de busca para desktop -->
-						<form class="d-none d-lg-flex">
-							<input
-								class="form-control me-2"
-								type="search"
-								placeholder="Search"
-								aria-label="Search" />
-							<button class="btn btn-search-desktop" type="submit">
-								Search
-							</button>
-						</form>
-					</div>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center">
+					<img src="Imgs/Biblioteca-digital-branco.png" alt="Logo Biblioteca Digital"
+						class="logo-desktop me-2" />
+					<a class="navbar-brand" href="index.html">Biblioteca Digital</a>
 				</div>
-			</nav>
-			<!-- Barra de busca expandível para mobile -->
-			<div id="mobileSearch" class="mobile-search-container">
-				<form class="mobile-search-form">
-					<input
-						class="form-control"
-						type="search"
-						placeholder="Search..."
-						aria-label="Search" />
-					<button class="btn btn-search-mobile" type="submit">Search</button>
-				</form>
+
+				<!-- Ícone de busca para mobile -->
+				<button id="searchToggle" class="btn btn-link d-lg-none search-icon">
+					<i class="fas fa-search"></i>
+				</button>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" href="index.html">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="aboutUs.html">SOBRE NÓS</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="BOOKS/books.html">LIVROS</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">CONTATO</a>
+						</li>
+					</ul>
+					<!-- Formulário de busca para desktop -->
+					<form class="d-none d-lg-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+						<button class="btn btn-search-desktop" type="submit">
+							Search
+						</button>
+					</form>
+				</div>
 			</div>
-		</header>
+		</nav>
+		<!-- Barra de busca expandível para mobile -->
+		<div id="mobileSearch" class="mobile-search-container">
+			<form class="mobile-search-form">
+				<input class="form-control" type="search" placeholder="Search..." aria-label="Search" />
+				<button class="btn btn-search-mobile" type="submit">Search</button>
+			</form>
+		</div>
+	</header>
 
-		<main>
-			<section class="content">
-				<h1 class="title">Instruções de Uso</h1>
-				<p class="text">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
-					quisquam quidem nesciunt veritatis dolorum. Pariatur autem veritatis
-					obcaecati sit, excepturi commodi qui cupiditate porro non labore
-					assumenda rerum earum quos ad sequi, molestias adipisci reprehenderit
-					laboriosam totam? Quisquam asperiores atque tenetur cum nam expedita
-					assumenda voluptatum laudantium eos magni nisi minima quasi laboriosam
-					harum obcaecati aperiam aspernatur ex, saepe nobis totam, illum a.
-				</p>
-				<div class="button-container">
-					<button id="read">LER CÓDIGO DO LIVRO</button>
-				</div>
-			</section>
-		</main>
+	<main>
+		<section class="content">
+			<h1 class="title">Instruções de Uso</h1>
+			<p class="text">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+				quisquam quidem nesciunt veritatis dolorum. Pariatur autem veritatis
+				obcaecati sit, excepturi commodi qui cupiditate porro non labore
+				assumenda rerum earum quos ad sequi, molestias adipisci reprehenderit
+				laboriosam totam? Quisquam asperiores atque tenetur cum nam expedita
+				assumenda voluptatum laudantium eos magni nisi minima quasi laboriosam
+				harum obcaecati aperiam aspernatur ex, saepe nobis totam, illum a.
+			</p>
+			<div class="button-container">
+				<a href="./cadastro.html" id="read">LER CÓDIGO DO LIVRO</a>
+			</div>
+		</section>
+	</main>
 
-		<footer>Biblioteca Digital. Todos os direitos reservados. © 2025</footer>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="home.js"></script>
-	</body>
+	<footer>Biblioteca Digital. Todos os direitos reservados. © 2025</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="home.js"></script>
+</body>
+
 </html>

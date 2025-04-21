@@ -128,6 +128,8 @@ main {
 }
 
 #read {
+	text-align: center;
+	text-decoration: none;
 	background-color: #fff;
 	color: rgb(0, 0, 0);
 	border: solid 3px #A0C878;
