@@ -1,0 +1,10 @@
+button.btn-livro {
+    color: rgb(0, 0, 0);
+    border: solid 3px #A0C878;
+}
+
+button.btn-livro:hover {
+    background-color: #A0C878;
+    border-color: #A0C878;
+    color: #000;
+}
