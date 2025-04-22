@@ -67,12 +67,13 @@ function criar_cards_livros(livros) {
     livros.forEach((livro) => {
         const disponibilidadeClasse = livro.disponivel ? "bg-success" : "bg-danger";
         const disponibilidadeTexto = livro.disponivel ? "Disponível" : "Indisponível";
+        const imagemDisponivel = livro.link_capa !== null ? "block" : "none";
 
         const col = document.createElement("div");
         col.className = "col";
         col.innerHTML = `
                   <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <img src="${livro.link_capa}" class="card-img-top" alt="Capa: ${livro.titulo}">
+                    <img src="${livro.link_capa}" class="card-img-top" alt="Capa: ${livro.titulo}" style="display: ${imagemDisponivel}">
                     <div class="card-body">
                       <h5 class="card-title">${livro.titulo}</h5>
                       <p class="card-text">
