@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from db import inicializar_banco, connect_db, cadastrar_livro
+from db import inicializar_banco, connect_db, cadastrar_livro, buscar_livros
 from ferramenta import extrair_codigo_de_barras, extrair_info_de_livro
 from flask_cors import CORS
 
@@ -93,6 +93,14 @@ def cadastrar():
         return {"error": "Não foi possivel salvar informações do livro."}, 400
 
     return {"message": "Livro salvo com sucesso!"}, 200
+
+
+@app.route("/livro")
+def buscar():
+    livros = buscar_livros()
+    if not livros:
+        return []
+    return livros
 
 
 # cria um servidor para rodar

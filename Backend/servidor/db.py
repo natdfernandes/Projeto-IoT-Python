@@ -61,3 +61,22 @@ def cadastrar_livro(isbn: str, livro: dict):
         return False
     finally:
         conn.close()
+
+
+def buscar_livros():
+    print("[INFO] Tentando buscar livros")
+    conn = connect_db()
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute("SELECT * FROM Livro")
+        livros = cursor.fetchall()
+        print("[INFO] Livros encontrados!")
+        return [dict(livro) for livro in livros]
+
+    except Error as e:
+        print("[ERRO] Falha ao buscar livros. {0}".format(e))
+        return None
+    finally:
+        conn.close()

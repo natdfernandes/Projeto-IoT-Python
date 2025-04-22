@@ -1,3 +1,7 @@
+* {
+	--bs-success-rgb: 160, 200, 120;
+}
+
 button.btn-livro {
     color: rgb(0, 0, 0);
     border: solid 3px #A0C878;
