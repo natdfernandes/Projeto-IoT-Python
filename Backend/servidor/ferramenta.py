@@ -1,6 +1,7 @@
 from PIL import Image
 from pyzbar.pyzbar import decode as lerqrcode
 from io import BytesIO
+from os import environ
 import requests
 
 
@@ -16,7 +17,7 @@ def extrair_codigo_de_barras(imagem):
 
 def buscar_livro_google_books(isbn: str):
     url = "https://www.googleapis.com/books/v1/volumes"
-    params = {"q": f"isbn:{isbn}", "key": ""}
+    params = {"q": f"isbn:{isbn}", "key": environ.get("GOOGLE_API_KEY", "")}
     response = requests.get(url, params)
     return response.json()
 
