@@ -7,6 +7,9 @@ app = Flask(__name__)
 # Libera CORS apenas para origens específicas
 CORS(app, origins=["http://localhost:5500", "https://natdfernandes.github.io"])
 
+print("[INFO] Criando tabela caso não exista")
+inicializar_banco()
+
 
 # atualiza o status do livro
 @app.route("/update-status", methods=["POST"])
@@ -105,7 +108,5 @@ def buscar():
 
 # cria um servidor para rodar
 if __name__ == "__main__":
-    print("[INFO] Criando tabela caso não exista")
-    inicializar_banco()
     print("[INFO] Iniciando servidor Flask...")
     app.run(host="0.0.0.0", port=8080)
