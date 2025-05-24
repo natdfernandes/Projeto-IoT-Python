@@ -12,7 +12,7 @@ inicializar_banco()
 
 
 # atualiza o status do livro
-@app.route("/update-status", methods=["POST"])
+@app.route("/livro-aluguel", methods=["PATCH"])
 def update_status():
     dados = request.get_json()
     ISBN = dados.get("ISBN")
