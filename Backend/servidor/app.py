@@ -78,7 +78,7 @@ def update_status():
 
     return jsonify(
         {
-            "mensagem": f"{titulo} agora está {'disponível' if novo_status == 1 else 'indisponível'}"
+            "message": f"{titulo} agora está {'disponível' if novo_status == 1 else 'indisponível'}"
         }
     )
 
