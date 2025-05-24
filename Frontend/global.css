@@ -12,3 +12,11 @@ button.btn-livro:hover {
     border-color: #A0C878;
     color: #000;
 }
+
+#video,
+#canvas {
+    margin: auto;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
