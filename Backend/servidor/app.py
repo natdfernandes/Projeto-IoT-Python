@@ -27,25 +27,19 @@ def ler_requisicao():
 
 
 # atualiza o status do livro
-@app.route("/livro-aluguel", methods=["PATCH"])
+@app.route("/livro/aluguel", methods=["PATCH"])
 def update_status():
-    dados = request.get_json()
-    ISBN = dados.get("ISBN")
-
-    print(f"[INFO] Requisição recebida com ISBN: {ISBN}")
-
-    if ISBN is None or ISBN == "":
-        print("[ERRO] Nenhum ISBN foi enviado")
-        return jsonify(
-            {"mensagem": "Você precisa enviar um código ISBN no corpo da requisição"}
-        )
-
+    codigo_de_barras = ler_requisicao()
+    if isinstance(codigo_de_barras, tuple):
+        return codigo_de_barras
     # conecta com o banco de dados
     conexao = connect_db()
     cursor = conexao.cursor()
 
     # procura o livro pelo isbn e retorna a primeira resposta que aparece
-    cursor.execute("SELECT id, titulo, disponivel FROM Livro WHERE isbn = ?", (ISBN,))
+    cursor.execute(
+        "SELECT isbn, titulo, disponivel FROM Livro WHERE isbn = ?", (codigo_de_barras,)
+    )
     resultado = cursor.fetchone()
 
     # se não achar e retorna uma resposta
@@ -55,12 +49,12 @@ def update_status():
         return jsonify({"mensagem": "O Livro não foi encontrado"})
 
     # se achar
-    id_livro = resultado[0]
+    isbn = resultado[0]
     titulo = resultado[1]
     status_atual = resultado[2]
 
     print(
-        f"[INFO] Livro encontrado: {titulo} (ID: {id_livro}) - Disponível: {bool(status_atual)}"
+        f"[INFO] Livro encontrado: {titulo} (isbn: {isbn}) - Disponível: {bool(status_atual)}"
     )
 
     # vai ser feita a troca da disponibilidade
@@ -75,7 +69,7 @@ def update_status():
 
     # atualiza o status no banco de dados e retorna uma mensagem
     cursor.execute(
-        "UPDATE Livro SET disponivel = ? WHERE id = ?", (novo_status, id_livro)
+        "UPDATE Livro SET disponivel = ? WHERE isbn = ?", (novo_status, isbn)
     )
     conexao.commit()
     conexao.close()
