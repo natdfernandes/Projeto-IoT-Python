@@ -11,78 +11,62 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 		<link
 			rel="icon"
-			href="../Imgs/Biblioteca-digital-branco.png"
+			href="Imgs/Biblioteca-digital-branco.png"
 			type="image/png" />
-		<link rel="stylesheet" href="../global.css" />
-		<link rel="stylesheet" href="books.css" />
+		<link rel="stylesheet" href="global.css" />
 		<title>Biblioteca Digital</title>
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-lg">
-				<div class="container-fluid">
-					<div class="d-flex align-items-center">
-						<img
-							src="../Imgs/Biblioteca-digital-branco.png"
-							alt="Logo Biblioteca Digital"
-							class="logo-desktop me-2" />
-						<a class="navbar-brand" href="../index.html">Biblioteca Digital</a>
-					</div>
-
-					<!-- Ícone de busca para mobile -->
-					<button id="searchToggle" class="btn btn-link d-lg-none search-icon">
-						<i class="fas fa-search"></i>
-					</button>
-
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a class="nav-link" href="../index.html">PÁGINA INICIAL</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link active" href="books.html">LIVROS</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="aluguel.html">ALUGUEL DE LIVROS</a>
-							</li>
-						</ul>
-						<!-- Formulário de busca para desktop -->
-						<form class="d-none d-lg-flex">
-							<input
-								class="form-control me-2"
-								type="search"
-								placeholder="Buscar"
-								aria-label="Search" />
-							<button class="btn btn-search-desktop" type="submit">
-								Buscar
-							</button>
-						</form>
-					</div>
+		<nav class="navbar navbar-expand-lg bg-success">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center">
+					<img src="Imgs/Biblioteca-digital-branco.png" alt="Logo Biblioteca Digital"
+						class="logo-desktop me-2" />
+					<a class="navbar-brand" href="index.html">Biblioteca Digital</a>
 				</div>
-			</nav>
-			<!-- Barra de busca expandível para mobile -->
-			<div id="mobileSearch" class="mobile-search-container">
-				<form class="mobile-search-form">
-					<input
-						class="form-control"
-						type="search"
-						placeholder="Buscar..."
-						aria-label="Search" />
-					<button class="btn btn-search-mobile" type="submit">Buscar</button>
-				</form>
+
+				<!-- Ícone de busca para mobile -->
+				<button id="searchToggle" class="btn btn-link d-lg-none search-icon">
+					<i class="fas fa-search"></i>
+				</button>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">PÁGINA INICIAL</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="books.html">LIVROS</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="aluguel.html">ALUGUEL DE LIVROS</a>
+						</li>
+					</ul>
+					<!-- Formulário de busca para desktop -->
+					<form class="d-none d-lg-flex">
+						<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+						<button class="btn btn-search-desktop" type="submit">
+							Buscar
+						</button>
+					</form>
+				</div>
 			</div>
-		</header>
+		</nav>
+		<!-- Barra de busca expandível para mobile -->
+		<div id="mobileSearch" class="mobile-search-container bg-success">
+			<form class="mobile-search-form">
+				<input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" />
+				<button class="btn btn-search-mobile" type="submit">Buscar</button>
+			</form>
+		</div>
+	</header>
 
 		<main>
 			<div id="livros" class="row row-cols-1 row-cols-md-4 g-4"></div>
@@ -90,6 +74,7 @@
 
 		<footer>Biblioteca Digital. Todos os direitos reservados. © 2025</footer>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="search.js"></script>
 		<script src="books.js"></script>
 	</body>
 </html>

@@ -8,13 +8,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 	<link rel="icon" href="Imgs/Biblioteca-digital-branco.png" type="image/png" />
 	<link rel="stylesheet" href="global.css">
-	<link rel="stylesheet" href="index.css" />
 	<title>Biblioteca Digital</title>
 </head>
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg">
+		<nav class="navbar navbar-expand-lg bg-success">
 			<div class="container-fluid">
 				<div class="d-flex align-items-center">
 					<img src="Imgs/Biblioteca-digital-branco.png" alt="Logo Biblioteca Digital"
@@ -36,13 +35,13 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="index.html">PÁGINA INICIAL</a>
+							<a class="nav-link" href="index.html">PÁGINA INICIAL</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="books.html">LIVROS</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="aluguel.html">ALUGUEL DE LIVROS</a>
+							<a class="nav-link active" href="aluguel.html">ALUGUEL DE LIVROS</a>
 						</li>
 					</ul>
 					<!-- Formulário de busca para desktop -->
@@ -56,7 +55,7 @@
 			</div>
 		</nav>
 		<!-- Barra de busca expandível para mobile -->
-		<div id="mobileSearch" class="mobile-search-container">
+		<div id="mobileSearch" class="mobile-search-container bg-success">
 			<form class="mobile-search-form">
 				<input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" />
 				<button class="btn btn-search-mobile" type="submit">Buscar</button>
@@ -89,6 +88,7 @@
 
 	<footer>Biblioteca Digital. Todos os direitos reservados. © 2025</footer>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="search.js"></script>
 	<script src="camera.js"></script>
 	<script src="aluguel.js"></script>
 </body>
