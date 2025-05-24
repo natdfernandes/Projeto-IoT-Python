@@ -11,6 +11,21 @@ print("[INFO] Criando tabela caso não exista")
 inicializar_banco()
 
 
+def ler_requisicao():
+    if "isbn" not in request.files:
+        return {"error": 'Nenhuma imagem com a chave "isbn" foi enviada.'}, 400
+
+    image_file = request.files["isbn"]
+
+    if image_file.filename == "":
+        return {"error": "Arquivo vazio."}, 400
+
+    codigo_de_barras = extrair_codigo_de_barras(image_file)
+    if not codigo_de_barras:
+        return {"error": "Não foi possivel ler o código de barras."}, 400
+    return str(codigo_de_barras)
+
+
 # atualiza o status do livro
 @app.route("/livro-aluguel", methods=["PATCH"])
 def update_status():
@@ -76,17 +91,9 @@ def update_status():
 
 @app.route("/livro/cadastrar", methods=["POST"])
 def cadastrar():
-    if "isbn" not in request.files:
-        return {"error": 'Nenhuma imagem com a chave "isbn" foi enviada.'}, 400
-
-    image_file = request.files["isbn"]
-
-    if image_file.filename == "":
-        return {"error": "Arquivo vazio."}, 400
-
-    codigo_de_barras = extrair_codigo_de_barras(image_file)
-    if not codigo_de_barras:
-        return {"error": "Não foi possivel ler o código de barras."}, 400
+    codigo_de_barras = ler_requisicao()
+    if isinstance(codigo_de_barras, tuple):
+        return codigo_de_barras
 
     info_livro = extrair_info_de_livro(codigo_de_barras)
     if not info_livro:
