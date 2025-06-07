@@ -40,7 +40,7 @@ enviar.addEventListener('click', () => {
         const formData = new FormData();
         formData.append('isbn', blob, 'captura.jpg');
 
-        fetch('http://localhost:8080/livro/cadastrar', {
+        fetch(`${extrairServidorUrl()}/livro/cadastrar`, {
             method: 'POST',
             body: formData
         })

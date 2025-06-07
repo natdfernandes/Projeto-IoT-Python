@@ -1,4 +1,4 @@
-fetch('http://localhost:8080/livro')
+fetch(`${extrairServidorUrl()}/livro`)
     .then(Response => Response.json())
     .then(livros => {
         criar_cards_livros(livros)
